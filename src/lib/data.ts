@@ -1,6 +1,6 @@
 import type { Patient } from './types';
 
-const now = Date.now();
+const now = new Date('2024-07-30T10:00:00Z').getTime();
 const oneHour = 60 * 60 * 1000;
 
 const generateVitals = (

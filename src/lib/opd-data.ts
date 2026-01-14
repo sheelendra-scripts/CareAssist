@@ -1,6 +1,6 @@
 import type { OpdPatient } from './types';
 
-const now = Date.now();
+const now = new Date('2024-07-30T10:00:00Z').getTime();
 const fiveMinutes = 5 * 60 * 1000;
 
 export const opdPatients: OpdPatient[] = [
