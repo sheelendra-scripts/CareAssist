@@ -111,7 +111,7 @@ export default function OpdPage() {
   );
 
   return (
-    <div className="flex h-[calc(100vh-4rem)] w-full flex-col">
+    <div className="flex h-screen w-full flex-col">
       <Header title="OPD Queue" />
       <div className="flex-1 overflow-hidden">
         <div className="grid h-full md:grid-cols-[350px_1fr] lg:grid-cols-[400px_1fr]">
