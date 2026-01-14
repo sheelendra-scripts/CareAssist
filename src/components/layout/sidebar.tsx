@@ -12,7 +12,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/icons';
-import { LayoutDashboard, LogOut } from 'lucide-react';
+import { LayoutDashboard, LogOut, Stethoscope } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function AppSidebar() {
@@ -33,10 +33,20 @@ export function AppSidebar() {
             <SidebarMenuButton
               href="/dashboard"
               isActive={pathname.startsWith('/dashboard')}
-              tooltip="Dashboard"
+              tooltip="Inpatient Dashboard"
             >
               <LayoutDashboard />
-              <span>Dashboard</span>
+              <span>Inpatient</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+           <SidebarMenuItem>
+            <SidebarMenuButton
+              href="/opd"
+              isActive={pathname.startsWith('/opd')}
+              tooltip="OPD Dashboard"
+            >
+              <Stethoscope />
+              <span>OPD</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

@@ -48,3 +48,30 @@ export type Patient = {
   riskSummary: string;
   alerts: Alert[];
 };
+
+export type OpdVitals = {
+  heart_rate: number;
+  spo2: number;
+  temperature: number;
+  systolic_bp: number;
+  respiration_rate: number;
+};
+
+export type OpdPatient = {
+  opd_patient_id: string;
+  name: string;
+  avatarUrl: string;
+  age: number;
+  gender: 'Male' | 'Female';
+  visit_time: number;
+  vitals_on_entry: OpdVitals;
+  previous_conditions: string[];
+  system_risk_level: 'LOW' | 'MEDIUM' | 'HIGH';
+  queue_position: number;
+  manual_override: boolean;
+  notes?: string;
+  news2: {
+    total_score: number;
+    breakdown: News2Breakdown;
+  };
+};
