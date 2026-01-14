@@ -28,6 +28,11 @@ export default function OpdPage() {
   
         const targetIndex = direction === 'up' ? patientIndex - 1 : patientIndex + 1;
         if (targetIndex < 0 || targetIndex >= draft.length) return;
+        
+        const patientToMove = draft[patientIndex];
+        const targetPatient = draft[targetIndex];
+
+        if (!patientToMove || !targetPatient) return;
   
         // Swap
         [draft[patientIndex], draft[targetIndex]] = [draft[targetIndex], draft[patientIndex]];
@@ -35,7 +40,7 @@ export default function OpdPage() {
         // Update queue positions and set manual override
         draft.forEach((p, index) => {
           p.queue_position = index + 1;
-          if (p.opd_patient_id === patientId || p.opd_patient_id === draft[patientIndex].opd_patient_id) {
+          if (p.opd_patient_id === patientId || p.opd_patient_id === targetPatient.opd_patient_id) {
              p.manual_override = true;
           }
         });
@@ -82,7 +87,7 @@ export default function OpdPage() {
                 if (a.manual_override && !b.manual_override) return -1;
                 if (!a.manual_override && b.manual_override) return 1;
                 if (a.manual_override && b.manual_override) return a.queue_position - b.queue_position;
-                return a.visit_time - b.visit_time;
+                return new Date(a.visit_time).getTime() - new Date(b.visit_time).getTime();
             });
 
             // Re-assign queue positions
