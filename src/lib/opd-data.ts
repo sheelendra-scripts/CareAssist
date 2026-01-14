@@ -1,12 +1,13 @@
 import type { OpdPatient } from './types';
 
-const now = new Date('2024-07-30T10:00:00Z').getTime();
+// Set base time to 10:00 AM IST (04:30 UTC)
+const now = new Date('2024-07-30T04:30:00Z').getTime();
 const fiveMinutes = 5 * 60 * 1000;
 
 export const opdPatients: OpdPatient[] = [
   {
     opd_patient_id: 'opd001',
-    name: 'Michael Davis',
+    name: 'Manoj Verma',
     avatarUrl: 'https://picsum.photos/seed/opd1/100/100',
     age: 45,
     gender: 'Male',
@@ -21,7 +22,7 @@ export const opdPatients: OpdPatient[] = [
   },
   {
     opd_patient_id: 'opd002',
-    name: 'Jessica Martinez',
+    name: 'Priya Reddy',
     avatarUrl: 'https://picsum.photos/seed/opd2/100/100',
     age: 28,
     gender: 'Female',
@@ -36,7 +37,7 @@ export const opdPatients: OpdPatient[] = [
   },
   {
     opd_patient_id: 'opd003',
-    name: 'David Rodriguez',
+    name: 'Dinesh Iyer',
     avatarUrl: 'https://picsum.photos/seed/opd3/100/100',
     age: 68,
     gender: 'Male',
@@ -51,7 +52,7 @@ export const opdPatients: OpdPatient[] = [
   },
   {
     opd_patient_id: 'opd004',
-    name: 'Sarah Lee',
+    name: 'Sneha Rao',
     avatarUrl: 'https://picsum.photos/seed/opd4/100/100',
     age: 52,
     gender: 'Female',
@@ -66,7 +67,7 @@ export const opdPatients: OpdPatient[] = [
   },
    {
     opd_patient_id: 'opd005',
-    name: 'Daniel Wilson',
+    name: 'Vikram Malhotra',
     avatarUrl: 'https://picsum.photos/seed/opd5/100/100',
     age: 34,
     gender: 'Male',

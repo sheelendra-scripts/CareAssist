@@ -1,6 +1,7 @@
 import type { Patient } from './types';
 
-const now = new Date('2024-07-30T10:00:00Z').getTime();
+// Set base time to 10:00 AM IST (04:30 UTC)
+const now = new Date('2024-07-30T04:30:00Z').getTime();
 const oneHour = 60 * 60 * 1000;
 
 const generateVitals = (
@@ -22,7 +23,7 @@ const generateVitals = (
 export const patients: Patient[] = [
   {
     id: 'p001',
-    name: 'Liam Johnson',
+    name: 'Rajesh Kumar',
     avatarUrl: 'https://picsum.photos/seed/p1/100/100',
     age: 72,
     gender: 'Male',
@@ -43,7 +44,7 @@ export const patients: Patient[] = [
     },
     anomalyScore: 0.88,
     compositeRisk: { score: 8.5, level: 'HIGH' },
-    lastReviewed: { userName: 'Dr. Miller', timestamp: now - 3 * oneHour },
+    lastReviewed: { userName: 'Dr. Mehta', timestamp: now - 3 * oneHour },
     riskSummary: 'Elevated heart rate and temperature with low SpO2. History of hypertension and diabetes increases risk. Recommend immediate clinical review.',
     alerts: [
       {
@@ -55,7 +56,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'p002',
-    name: 'Olivia Williams',
+    name: 'Sunita Gupta',
     avatarUrl: 'https://picsum.photos/seed/p2/100/100',
     age: 65,
     gender: 'Female',
@@ -76,13 +77,13 @@ export const patients: Patient[] = [
     },
     anomalyScore: 0.65,
     compositeRisk: { score: 5.2, level: 'MEDIUM' },
-    lastReviewed: { userName: 'Dr. Chen', timestamp: now - 1.5 * oneHour },
+    lastReviewed: { userName: 'Dr. Singh', timestamp: now - 1.5 * oneHour },
     riskSummary: 'Slightly elevated heart rate and borderline SpO2. COPD history is a consideration. Monitor closely for changes.',
     alerts: [],
   },
   {
     id: 'p003',
-    name: 'Noah Brown',
+    name: 'Amit Patel',
     avatarUrl: 'https://picsum.photos/seed/p3/100/100',
     age: 81,
     gender: 'Male',
@@ -109,7 +110,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'p004',
-    name: 'Emma Jones',
+    name: 'Meera Das',
     avatarUrl: 'https://picsum.photos/seed/p4/100/100',
     age: 58,
     gender: 'Female',
@@ -136,7 +137,7 @@ export const patients: Patient[] = [
   },
   {
     id: 'p005',
-    name: 'James Garcia',
+    name: 'Suresh Nair',
     avatarUrl: 'https://picsum.photos/seed/p5/100/100',
     age: 79,
     gender: 'Male',

@@ -24,8 +24,8 @@ export function AppSidebar() {
     <Sidebar collapsible="icon" className="border-r border-border/20">
       <SidebarHeader>
         <div className="flex items-center gap-2.5 px-2">
-          <Logo className="h-8 w-8 text-primary" />
-          <span className="text-lg font-headline font-semibold text-primary">CareAssist</span>
+          <Logo className="h-8 w-8 text-foreground" />
+          <span className="text-lg font-headline font-semibold text-foreground">CareAssist</span>
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -67,7 +67,7 @@ export function AppSidebar() {
             <AvatarFallback>AS</AvatarFallback>
           </Avatar>
           <div className="flex flex-col text-sm group-data-[collapsible=icon]:hidden">
-            <span className="font-semibold text-sidebar-foreground">Dr. Anya Sharma</span>
+            <span className="font-semibold text-sidebar-foreground">Dr. Aditya Sharma</span>
             <span className="text-xs text-sidebar-foreground/70">Cardiologist</span>
           </div>
         </div>

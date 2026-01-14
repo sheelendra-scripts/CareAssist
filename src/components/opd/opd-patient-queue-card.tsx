@@ -118,7 +118,7 @@ export function OpdPatientQueueCard({
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
-                                <Button variant="ghost" size="icon" className="h-6 w-6" onClick={(e) => { e.stopPropagation(); onReorder(patient.opd_patient_id, 'up')}} disabled={isFirst}>
+                                <Button variant="ghost" size="icon" className="h-6 w-6" onClick={(e) => { e.preventDefault(); e.stopPropagation(); onReorder(patient.opd_patient_id, 'up')}} disabled={isFirst}>
                                     <ArrowUp className="h-4 w-4" />
                                 </Button>
                             </TooltipTrigger>
@@ -126,7 +126,7 @@ export function OpdPatientQueueCard({
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger asChild>
-                                <Button variant="ghost" size="icon" className="h-6 w-6" onClick={(e) => { e.stopPropagation(); onReorder(patient.opd_patient_id, 'down')}} disabled={isLast}>
+                                <Button variant="ghost" size="icon" className="h-6 w-6" onClick={(e) => { e.preventDefault(); e.stopPropagation(); onReorder(patient.opd_patient_id, 'down')}} disabled={isLast}>
                                     <ArrowDown className="h-4 w-4" />
                                 </Button>
                             </TooltipTrigger>
@@ -134,7 +134,7 @@ export function OpdPatientQueueCard({
                         </Tooltip>
                          <Tooltip>
                             <TooltipTrigger asChild>
-                                <Button variant="ghost" size="icon" className="h-6 w-6" onClick={(e) => { e.stopPropagation(); onSetPriority(patient.opd_patient_id)}}>
+                                <Button variant="ghost" size="icon" className="h-6 w-6" onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSetPriority(patient.opd_patient_id)}}>
                                     <ShieldAlert className="h-4 w-4 text-yellow-600" />
                                 </Button>
                             </TooltipTrigger>
@@ -143,7 +143,7 @@ export function OpdPatientQueueCard({
                         {patient.manual_override && (
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Button variant="ghost" size="icon" className="h-6 w-6" onClick={(e) => { e.stopPropagation(); onResetPriority(patient.opd_patient_id)}}>
+                                    <Button variant="ghost" size="icon" className="h-6 w-6" onClick={(e) => { e.preventDefault(); e.stopPropagation(); onResetPriority(patient.opd_patient_id)}}>
                                         <RotateCcw className="h-4 w-4 text-blue-600" />
                                     </Button>
                                 </TooltipTrigger>
