@@ -1,3 +1,6 @@
+
+'use client';
+
 import { notFound } from 'next/navigation';
 import { patients } from '@/lib/data';
 import { Header } from '@/components/layout/header';
@@ -9,12 +12,15 @@ import { News2Card } from '@/components/patient/news2-card';
 import { AnomalyCard } from '@/components/patient/anomaly-card';
 import { AlertHistory } from '@/components/patient/alert-history';
 import { format, formatDistanceToNow } from 'date-fns';
+import { useHasMounted } from '@/hooks/use-has-mounted';
+
 
 export default function PatientDetailPage({
   params,
 }: {
   params: { id: string };
 }) {
+  const hasMounted = useHasMounted();
   const patient = patients.find((p) => p.id === params.id);
 
   if (!patient) {
@@ -57,7 +63,7 @@ export default function PatientDetailPage({
         </div>
         
         <p className="text-sm text-muted-foreground">
-            Last reviewed by {patient.lastReviewed.userName} about {formatDistanceToNow(patient.lastReviewed.timestamp)} ago.
+            Last reviewed by {patient.lastReviewed.userName} {hasMounted ? `about ${formatDistanceToNow(patient.lastReviewed.timestamp)} ago` : '...'}.
         </p>
 
         <div className="grid gap-6 lg:grid-cols-3">

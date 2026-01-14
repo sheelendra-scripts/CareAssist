@@ -1,3 +1,4 @@
+
 import type { OpdPatient } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -5,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import { useHasMounted } from '@/hooks/use-has-mounted';
 import {
   ArrowUp,
   ArrowDown,
@@ -50,6 +52,7 @@ export function OpdPatientQueueCard({
   isFirst,
   isLast,
 }: OpdPatientQueueCardProps) {
+  const hasMounted = useHasMounted();
   const patientInitials = patient.name
     .split(' ')
     .map((n) => n[0])
@@ -97,7 +100,7 @@ export function OpdPatientQueueCard({
                 <p className="font-semibold">{patient.name}</p>
                 <p className="text-xs text-muted-foreground">
                   {patient.age}y {patient.gender} &bull; Arrived at{' '}
-                  {format(patient.visit_time, 'HH:mm')}
+                  {hasMounted ? format(patient.visit_time, 'HH:mm') : '...'}
                 </p>
               </div>
               <Badge className={cn('text-xs', riskBadgeClass[patient.system_risk_level])}>

@@ -1,3 +1,6 @@
+
+'use client';
+
 import type { Alert } from '@/lib/types';
 import {
   Card,
@@ -8,12 +11,16 @@ import {
 } from '@/components/ui/card';
 import { AlertTriangle, Bell } from 'lucide-react';
 import { format, formatDistanceToNow } from 'date-fns';
+import { useHasMounted } from '@/hooks/use-has-mounted';
+
 
 type AlertHistoryProps = {
   alerts: Alert[];
 };
 
 export function AlertHistory({ alerts }: AlertHistoryProps) {
+  const hasMounted = useHasMounted();
+
   return (
     <Card>
       <CardHeader>
@@ -38,7 +45,7 @@ export function AlertHistory({ alerts }: AlertHistoryProps) {
                     High Risk Alert
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {format(alert.timestamp, 'MMM d, yyyy, HH:mm')} ({formatDistanceToNow(alert.timestamp)} ago)
+                    {hasMounted ? `${format(alert.timestamp, 'MMM d, yyyy, HH:mm')} (${formatDistanceToNow(alert.timestamp)} ago)` : '...'}
                   </p>
                   <p className="mt-1 text-sm text-foreground/80">
                     {alert.explanation}
