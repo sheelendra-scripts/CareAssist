@@ -32,7 +32,7 @@ export function GlobalNavbar() {
         <div className="flex items-center gap-4 text-sm">
           {navItems.map((item) => (
             <Link
-              key={item.href}
+              key={`${item.href}-${item.label}`}
               href={item.href}
               className={cn(
                 'relative px-2 py-1 transition-colors hover:text-primary',
