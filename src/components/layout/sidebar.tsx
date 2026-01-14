@@ -14,6 +14,7 @@ import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/icons';
 import { LayoutDashboard, LogOut, Stethoscope } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Link from 'next/link';
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -30,24 +31,32 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              href="/dashboard"
-              isActive={pathname.startsWith('/dashboard')}
-              tooltip="Inpatient Dashboard"
-            >
-              <LayoutDashboard />
-              <span>Inpatient</span>
-            </SidebarMenuButton>
+            <Link href="/dashboard" passHref>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname.startsWith('/dashboard')}
+                tooltip="Inpatient Dashboard"
+              >
+                <div>
+                  <LayoutDashboard />
+                  <span>Inpatient</span>
+                </div>
+              </SidebarMenuButton>
+            </Link>
           </SidebarMenuItem>
            <SidebarMenuItem>
-            <SidebarMenuButton
-              href="/opd"
-              isActive={pathname.startsWith('/opd')}
-              tooltip="OPD Dashboard"
-            >
-              <Stethoscope />
-              <span>OPD</span>
-            </SidebarMenuButton>
+            <Link href="/opd" passHref>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname.startsWith('/opd')}
+                tooltip="OPD Dashboard"
+              >
+                <div>
+                  <Stethoscope />
+                  <span>OPD</span>
+                </div>
+              </SidebarMenuButton>
+            </Link>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarContent>
